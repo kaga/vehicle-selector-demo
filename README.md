@@ -1,6 +1,6 @@
 # Vehicle Selector Demo
 
-[View Demo Here](https://kaga.github.io/vehicle-selector-demo/react)
+[View Demo Here](https://kaga.github.io/vehicle-selector-demo/react/build/)
 
 [View Source Code Here](https://github.com/kaga/react-vehicle-selector)
 
