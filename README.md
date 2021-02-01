@@ -37,22 +37,25 @@ When changes merge to master, the [CD Github Action](https://github.com/kaga/rea
 will build, test and create a [Github Releases](https://github.com/kaga/react-vehicle-selector/releases).
 
 A separate [Publish Action](https://github.com/kaga/react-vehicle-selector/blob/main/.github/workflows/publish.yml)
- which listen for the release publish event then publish the build artifact to this repo. This will enable CD as well as creating hotfix on demand.
+which listen for the release publish event then publish the build artifact to this repo. This will enable CD as well as creating hotfix on demand.
 
 ---
 
 ## Configure Selection Order
 
-### Make > Model > Year
-
-```TSX
-<FilterBar filters={[VehicleMakeFilterItem, VehicleModelFilterItem, VehicleYearFilterItem]}></FilterBar>
-```
-
 ### Year > Make > Model
 
 ```TSX
-<FilterBar filters={[VehicleYearFilterItem, VehicleMakeFilterItem, VehicleModelFilterItem]}></FilterBar>
+<FilterBar filters={[VehicleYearFilterItem, VehicleMakeFilterItem, VehicleModelFilterItem]}
+  onSelectedAllFilterItems={(selectedOption) => onSelectFilterOptions(selectedOption)}>
+</FilterBar>
+```
+### Make > Model > Year
+
+```TSX
+<FilterBar filters={[VehicleMakeFilterItem, VehicleModelFilterItem, VehicleYearFilterItem]}
+  onSelectedAllFilterItems={(selectedOption) => onSelectFilterOptions(selectedOption)}>
+</FilterBar>
 ```
 
 ---
@@ -60,7 +63,7 @@ A separate [Publish Action](https://github.com/kaga/react-vehicle-selector/blob/
 ## Design
 
 This demo was designed with the ability to provide general filtering in mind.
-i.e. Filter a vehicle model, or vehicle configs  
+i.e. Filter a vehicle model, or vehicle configs
 
 ### Separate GraphQL Logic From UI
 
@@ -70,7 +73,7 @@ All network related files are located in **services > vehicle-selector** to sepa
 
 The UI was build with simple components for better understanding how React works. It was intentional to
 use [Controlled Components](https://reactjs.org/docs/forms.html#controlled-components) and
- [Hooks](https://reactjs.org/docs/hooks-intro.html) to learn and try to view react with a new perspective.  
+[Hooks](https://reactjs.org/docs/hooks-intro.html) to learn and try to view react with a new perspective.
 
 ### Reusable Filter Component
 
@@ -92,5 +95,5 @@ This connects the network layer and the vehicle selection specific logic.
 1. It is assuming certain UI elements (i.e. selectedOption / disabled)
 1. Usage of **any**
 1. Vehicle Selector components are responsible for handling the next/previous selection filtering logic,
-should extract that logic to enable other ways of filtering
+   should extract that logic to enable other ways of filtering
 1. Error state handling
