@@ -59,9 +59,18 @@ A separate [Publish Action](https://github.com/kaga/react-vehicle-selector/blob/
 
 ## Design
 
+This demo was designed with the ability to provide general filtering in mind.
+i.e. Filter a vehicle model, or vehicle configs  
+
 ### Separate GraphQL Logic From UI
 
 All network related files are located in **services > vehicle-selector** to separate the concerns
+
+### UI
+
+The UI was build with simple components for better understanding how React works. It was intentional to
+use [Controlled Components](https://reactjs.org/docs/forms.html#controlled-components) and
+ [Hooks](https://reactjs.org/docs/hooks-intro.html) to learn and try to view react with a new perspective.  
 
 ### Reusable Filter Component
 
