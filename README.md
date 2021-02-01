@@ -33,7 +33,11 @@ There are many things yet to explore / implement, such as:
 
 ## Github Page
 
-The build artifact was published by Github action on push to master branch.
+When changes merge to master, the [CD Github Action](https://github.com/kaga/react-vehicle-selector/blob/main/.github/workflows/continuous-deployment.yml)
+will build, test and create a [Github Releases](https://github.com/kaga/react-vehicle-selector/releases).
+
+A separate [Publish Action](https://github.com/kaga/react-vehicle-selector/blob/main/.github/workflows/publish.yml)
+ which listen for the release publish event then publish the build artifact to this repo. This will enable CD as well as creating hotfix on demand.
 
 ---
 
